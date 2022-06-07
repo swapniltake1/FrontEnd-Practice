@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Demo</title>
+    <style>
+        .all{
+            background-color: rgb(255, 240, 220);
+        }
+     .form-group{
+        margin-left: 7cm;
+        
+     }
+     .form-control{
+         padding-left: 2cm;
+         display: inline-block;
+         padding-bottom: 10px;
+         padding-top: 10px;
+         padding-right: 2cm;
+         margin-left: 2cm;
+         border-color: none;
+         border-radius: 5px;
+     }
+     
+
+    </style>
+</head>
+<body>
+    <div class="all">
+    <h1 style="color: blue; text-align: center;"> <b>Demo-8 Form Copy</b></h1>
+
+    <div class="form-group">
+        <p > <b>Current Address</b>  </p>
+        <input type="text" class="form-control" placeholder="Address Line 1" id="pAddressLine1">
+        <input type="text" class="form-control" placeholder="Address Line 2" id="pAddressLine2">
+        <br>
+        <br>
+        <input type="text" class="form-control" placeholder="Landmark" id="pLandmark">
+        <input type="text" class="form-control" placeholder="Zip Code" id="pZipcode">
+        <br> 
+        <br>
+        <input type="text" class="form-control" placeholder="City" id="pCity">
+        <input type="text" class="form-control" placeholder="State" id="pState">
+        <br>
+        <br>
+        <input type="text" class="form-control" placeholder="country" id="pCountry">
+    </div>
+    <br>
+    <br>
+
+    <div class="form-group">
+        <input type="checkbox" id="checkBox"  onclick="FillAddressInput()"><b> Same as permanent address</b>
+     </div>
+
+    <div class="form-group">
+     <p> <b>Permenent Address</b></p>
+     <br>
+     <input type="text" class="form-control" placeholder="Address Line 1" id="curAddressLine1">
+     <input type="text" class="form-control" placeholder="Address Line 2" id="curAddressLine2">
+     <br><br>
+     <input type="text" class="form-control" placeholder="Landmark" id="curLandmark">
+     <input type="text" class="form-control" placeholder="Zip Code" id="curZipcode">
+     <br><br>
+     <input type="text" class="form-control" placeholder="City" id="curCity">
+     <input type="text" class="form-control" placeholder="State" id="curState">
+     <br><br>
+     <input type="text" class="form-control" placeholder="country" id="curCountry">
+     <br>   
+    </div>
+</div>
+
+    <script type="text/javascript">
+
+        function FillAddressInput()
+            {
+               let checkBox= document.getElementById('checkBox');
+        
+               let pAddressLine1 = document.getElementById("pAddressLine1");
+               let pAddressLine2 = document.getElementById("pAddressLine2");
+               let pLandmark = document.getElementById("pLandmark");
+               let pZipcode = document.getElementById("pZipcode");
+               let pCity = document.getElementById("pCity");
+               let pState = document.getElementById("pState");
+               let pCountry = document.getElementById("pCountry");
+        
+               let curAddressLine1 = document.getElementById("curAddressLine1");
+               let curAddressLine2 = document.getElementById("curAddressLine2");
+               let curLandmark = document.getElementById("curLandmark");
+               let curZipcode = document.getElementById("curZipcode");
+               let curCity = document.getElementById("curCity");
+               let curState = document.getElementById("curState");
+               let curCountry = document.getElementById("curCountry");
+        
+                if (checkBox.checked == true)
+                {
+                
+               let pAddressLine1Value = pAddressLine1.value;
+               let pAddressLine2Value = pAddressLine2.value;
+               let pLandmarkValue     = pLandmark.value;
+               let pZipcodeValue      = pZipcode.value;
+               let pCityValue         = pCity.value;
+               let pStateValue        = pState.value;
+               let pCountryValue      = pCountry.value;
+        
+               curAddressLine1.value = pAddressLine1Value; 
+               curAddressLine2.value = pAddressLine2Value; 
+               curLandmark.value     = pLandmarkValue;   
+               curZipcode.value      = pZipcodeValue;     
+               curCity.value         = pCityValue;     
+               curState.value        = pStateValue;       
+               curCountry.value      = pCountryValue;      
+        
+        
+               }
+                else
+                {
+               curAddressLine1.value = "";
+               curAddressLine2.value = ""; 
+               curLandmark.value     = "";     
+               curZipcode.value      = "";     
+               curCity.value         = "";         
+               curState.value        = "";       
+               curCountry.value      = "";           }
+            }
+        
+        </script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        #hed{
+            color: rgb(0, 80, 230);
+            text-align: center;
+        }
+    form{
+      
+        
+       
+      }
+      form input{
+        padding:0.7em 1em;
+        margin-left: 20px;
+      }
+      form span{
+        padding:0.6em 1em;
+      }
+      form > button{
+        width: 140px;
+        height: 40px;
+        margin:1em 1em;
+        cursor:pointer;
+        border: none;
+        border-radius: 10px;
+        
+      }
+      ul{
+        list-style:none;
+        display:grid;
+        grid-template-columns:1fr 1fr 1fr 1fr;
+        justify-content:center;
+        width:80vw;
+        margin-left: 2cm;
+      
+      }
+      ul li{
+        padding:1em 2em .8em 2em;
+        border:1px solid black;
+        border-left: none;
+        border-right: none;
+        background-color: rgba(0, 119, 255, 0.582);
+      
+      }
+      #div{
+          margin-top: 1cm;
+          margin-left: 5cm;
+          
+      }
+    </style>
+</head>
+<body>
+    <h1 id="hed"> Demo-1 </h1>
+    <div id="div">
+    <form action="#" id="formSubmission" method="get">
+        
+        <input type="Name" placeholder="Enter your Name" id="name"> 
+        
+        <input type="number" placeholder=" Enter Phone" id="phone">
+
+        <input type="email" name="Pmail" placeholder="Enter Your Email " required id="email">
+        
+        <input type="date" name="DOB" id="dob" > <br>
+        <br>
+        <br>
+        <button type="submit" style="background-color: rgb(82, 140, 247); margin-left: 8cm;" id="btn2" > <b> SUBMIT</b> </button>
+        <button type="reset" style="background-color: rgb(82, 140, 247);" id="btn1"> <b> RESET</b> </button>
+        <br>
+        <br>
+      </form>
+    </div>
+
+     <ul id="data">
+       <li> <b> Name </b></li>
+       <li> <b> Phone</b></li>
+       <li><b> Email</b></li>
+       <li> <b> Date Of Birth</b></li>
+     </ul>
+
+     <script>
+         let form=document.getElementById("formSubmission");
+
+let table=document.getElementById('data');
+form.addEventListener("submit",(e)=>{
+  e.preventDefault();
+  submit();
+})
+
+
+const submit=()=>{
+  let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let email = document.getElementById("email").value;
+    let dob = document.getElementById("dob").value;
+
+
+  let newArray = [name,phone,email,dob];
+  newArray.forEach((item)=>{
+      var li = document.createElement("li");
+  var text = document.createTextNode(item);
+  li.appendChild(text);
+  table.appendChild(li);
+  })
+  form.reset();
+}
+     </script>
+</body>
+</html>

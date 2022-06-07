@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Demo </title>
+    <style>
+        .container {
+  
+}
+
+#car {
+  left: 5%;
+  position: absolute;
+  top: 50%;
+  
+
+}
+
+.panel {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  background: #FF5964;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  border: 1px solid #FF5964;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1rem;
+  margin: 1rem .3em;
+  outline: none;
+  padding: .4em .6em;
+  transition: background .3s;
+  width: 100px;
+}
+
+.btn:hover {
+  background: #FF7780;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img id="car" src="https://elasq.com/wp-content/uploads/2021/09/car-9.png"/>
+        <div class="panel">
+          <button class="btn" id="up">Up &#8593;</button>
+          <button class="btn" id="down">Down &#8595;</button>
+          <button class="btn" id="left">Left &#8592;</button>
+          <button class="btn" id="right">Right &#8594;</button>
+          <button class="btn" id="brake">Brake &#9728;</button>
+          <button class="btn" id="rotate">Rotate &#9842;</button>
+        </div>
+      </div>
+      <script>
+          var taxi = document.getElementById('car'),
+    moveLeft = document.getElementById('left'),
+    moveRight = document.getElementById('right'),
+    moveUp = document.getElementById('up'),
+    moveDown = document.getElementById('down'),
+    brake = document.getElementById('brake'),
+    rotate = document.getElementById('rotate'),
+
+    reqID,
+    direction;
+
+function changeDirection(arrow) {
+  direction = arrow;
+}
+
+function startMoving() {
+  if (direction === 'right') {
+    taxi.style.left = (taxi.offsetLeft += 2) + 'px';
+  } else if (direction === 'left') {
+    taxi.style.left = (taxi.offsetLeft -= 2) + 'px';
+  } else if (direction === 'up') {
+    taxi.style.top = (taxi.offsetTop -= 2) + 'px';
+  } else if (direction === 'down') {
+    taxi.style.top = (taxi.offsetTop += 2) + 'px';
+  }
+
+  
+  // tells the browser to keep running the car 60 frames per second.
+  reqID = window.requestAnimationFrame(startMoving);
+}
+
+function stopMoving() {
+  // cancel requestAnimationFrame function to stop moving.
+  window.cancelAnimationFrame(reqID);
+  
+}
+
+// EventListener Mousedown
+moveUp.addEventListener('mousedown', function() {
+  changeDirection('up');
+  startMoving();
+});
+moveUp.addEventListener('mouseup', stopMoving);
+
+moveDown.addEventListener('mousedown', function() {
+  changeDirection('down');
+  startMoving();
+});
+moveDown.addEventListener('mouseup', stopMoving);
+
+moveLeft.addEventListener('mousedown', function() {
+  changeDirection('left');
+  startMoving();
+});
+moveLeft.addEventListener('mouseup', stopMoving);
+
+moveRight.addEventListener('mousedown', function() {
+  changeDirection('right');
+  startMoving();
+});
+moveRight.addEventListener('mouseup', stopMoving);
+      </script>
+</body>
+</html>
